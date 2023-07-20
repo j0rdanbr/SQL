@@ -1,0 +1,49 @@
+--create a list of items for my clothing store
+
+/** Clothing items:
+Socks 
+Anklets
+Graphic tees
+Dresses
+Pants
+Jeans
+Shorts
+Necklaces
+Blouses
+Athelesuire
+Boots
+Sandals
+Heels
+Underwear
+Slides
+**/
+
+--create table for store's database
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, popularity INTEGER);
+
+SELECT * FROM clothing;
+INSERT into clothing VALUES (1,"socks", 10, 6, 7);
+INSERT into clothing VALUES (2, "anklets", 10, 10, 7);
+INSERT into clothing VALUES (3, "graphic tees", 30, 20, 10);
+INSERT into clothing VALUES (4, "dresses", 50, 40, 10);
+INSERT into clothing VALUES (5, "pants", 30, 43, 10);
+INSERT into clothing VALUES (6, "jeans", 40, 50, 10);
+INSERT into clothing VALUES (7, "shorts", 30, 25, 10);
+INSERT into clothing VALUES (8, "necklaces", 25, 10, 10);
+INSERT into clothing VALUES (9, "blouses", 25, 30, 9);
+INSERT into clothing VALUES (10, "athlesuire", 30, 50, 8);
+INSERT into clothing VALUES (11, "boots", 20, 70, 8);
+INSERT into clothing VALUES (12, "sandals", 30, 30, 10);
+INSERT into clothing VALUES (13, "heels", 30, 65, 10);
+INSERT into clothing VALUES (14, "underwear", 20, 7, 8);
+INSERT into clothing VALUES (15, "slides",15, 10, 10);
+SELECT * FROM clothing;
+
+-organise the table by price
+SELECT * FROM clothing ORDER BY PRICE;
+
+-find the total price of all clothing items
+SELECT SUM (price) FROM clothing
+
+-find the most popular items
+SELECT name, price, popularity FROM clothing ORDER BY popularity desc limit 5;
