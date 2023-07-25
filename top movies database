@@ -113,12 +113,15 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 
 
 SELECT * FROM topmovies LIMIT 20;
+-what's the average amount of revenue made worldwide? what was the minimum amount? what was the maximum amount?
 SELECT AVG (worldwide) FROM topmovies; SELECT MIN (worldwide) FROM topmovies; SELECT MAX (worldwide) FROM topmovies;
 
+-which year made the most money worldwide from the movies?
 SELECT year, SUM(worldwide) as ww_revenue FROM topmovies
 GROUP BY year
 HAVING ww_revenue;
 
+-which movies are classified as new, childhood and classics?
 SELECT title, year,
 CASE
 WHEN year > 2010 THEN "new"
@@ -136,8 +139,11 @@ END AS "time_period"
 FROM topmovies
 GROUP BY time_period;
 
+-which movies made since 2000 made over 1 billion dollars?
 SELECT * FROM topmovies WHERE year >2000 AND worldwide > 1000;
 
+-which movies were either made from WB or sony?
 SELECT title FROM topmovies WHERE studio = "WB" OR studio = "Sony";
 
-SELECT title FROM topmovies WHERE studio = "Fox" ORDER BY worldwide DESC LIMIT 20;
+-i want to see which movies from Paramount/DreamWorks made the list!
+SELECT title FROM topmovies WHERE studio = "P/DW" ORDER BY worldwide;
